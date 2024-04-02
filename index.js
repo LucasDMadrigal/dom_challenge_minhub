@@ -1,4 +1,6 @@
 import beers from "./beers.js";
+import frutas from "./data.js";
+
 /**
  *
  *  .1
@@ -164,3 +166,80 @@ function renderBeerTable(beerArray, elementId) {
 }
 
 renderBeerTable(beers, 'beerTableContainer');
+
+/**
+ * 
+ * RETOS DEL REEDME
+ */
+
+// 1.
+var titulo = document.getElementById("titulo");
+
+// 2.
+var tituloPrincipal = "Frutas";
+titulo.textContent = tituloPrincipal;
+
+// 3.
+var elementosNaranja = document.querySelectorAll("header, footer");
+elementosNaranja.forEach(function(elemento) {
+    elemento.style.backgroundColor = "orange";
+});
+
+// 4.
+var parrafoFooter = document.querySelector("footer p");
+parrafoFooter.textContent += " Lucas Madrigal -  Cohort 54";
+
+// 5.
+var contenedorDiv = document.createElement("div");
+contenedorDiv.id = "contenedor";
+document.querySelector("main").appendChild(contenedorDiv);
+
+// 6.
+function crearCard(nombre, foto, descripcion) {
+    return `
+        <div class="card">
+            <img src="${foto}" alt="${nombre}">
+            <h2>${nombre}</h2>
+            <p>${descripcion}</p>
+        </div>
+    `;
+}
+
+// Utilizar el archivo data para crear cards con los datos de las frutas
+function mostrarCards(frutas) {
+    var contenedor = document.getElementById("contenedor");
+    frutas.forEach(function(fruta) {
+        var card = crearCard(fruta.nombre, fruta.foto, fruta.descripcion);
+        contenedor.innerHTML += card;
+    });
+}
+
+// Mostrar las cards con los datos de las frutas en el div "#contenedor"
+mostrarCards(frutas);
+
+// Crear otro div dentro del main, agregarle el id "lista" y capturarlo mediante ese id.
+var listaDiv = document.createElement("div");
+listaDiv.id = "lista";
+document.querySelector("main").appendChild(listaDiv);
+
+// Agregar al div "#lista" el título "Frutas Dulces"
+var tituloLista = document.createElement("h2");
+tituloLista.textContent = "Frutas Dulces";
+document.getElementById("lista").appendChild(tituloLista);
+
+// Crear una función que reciba un array y devuelva una lista desordenada utilizando nodos
+function crearListaDesordenada(frutas) {
+    var lista = document.createElement("ul");
+    frutas.forEach(function(fruta) {
+        if (fruta.esDulce) {
+            var listItem = document.createElement("li");
+            listItem.textContent = fruta.nombre;
+            lista.appendChild(listItem);
+        }
+    });
+    return lista;
+}
+
+// Mostrar la lista de frutas dulces en el div "#lista"
+var listaFrutasDulces = crearListaDesordenada(frutas);
+document.getElementById("lista").appendChild(listaFrutasDulces);

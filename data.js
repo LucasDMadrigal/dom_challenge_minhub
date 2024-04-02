@@ -240,3 +240,5 @@ const frutas = [
         descripcion: 'El pomelo es cítrico y ligeramente amargo. Se consume en ensaladas y jugos.'
     },
 ]
+
+export default frutas
