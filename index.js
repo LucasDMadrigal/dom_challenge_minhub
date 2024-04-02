@@ -205,7 +205,7 @@ function crearCard(nombre, foto, descripcion) {
     `;
 }
 
-// Utilizar el archivo data para crear cards con los datos de las frutas
+// 7.
 function mostrarCards(frutas) {
     var contenedor = document.getElementById("contenedor");
     frutas.forEach(function(fruta) {
@@ -214,20 +214,19 @@ function mostrarCards(frutas) {
     });
 }
 
-// Mostrar las cards con los datos de las frutas en el div "#contenedor"
 mostrarCards(frutas);
 
-// Crear otro div dentro del main, agregarle el id "lista" y capturarlo mediante ese id.
+// 8.
 var listaDiv = document.createElement("div");
 listaDiv.id = "lista";
 document.querySelector("main").appendChild(listaDiv);
 
-// Agregar al div "#lista" el título "Frutas Dulces"
+// 9.
 var tituloLista = document.createElement("h2");
 tituloLista.textContent = "Frutas Dulces";
 document.getElementById("lista").appendChild(tituloLista);
 
-// Crear una función que reciba un array y devuelva una lista desordenada utilizando nodos
+// 10.
 function crearListaDesordenada(frutas) {
     var lista = document.createElement("ul");
     frutas.forEach(function(fruta) {
@@ -240,6 +239,6 @@ function crearListaDesordenada(frutas) {
     return lista;
 }
 
-// Mostrar la lista de frutas dulces en el div "#lista"
+// 11.
 var listaFrutasDulces = crearListaDesordenada(frutas);
 document.getElementById("lista").appendChild(listaFrutasDulces);
