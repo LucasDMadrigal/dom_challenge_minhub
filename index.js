@@ -1,5 +1,4 @@
 import beers from "./beers.js";
-import frutas from "./data.js";
 
 /**
  *
@@ -21,9 +20,10 @@ const createMultiplication = (number1, number2) => number1 * number2;
  * .3
  */
 
-// const newArray = array.map((element) => createMultiplication(element, 2));
+const array = [ 1,2,3,4,5,6,7,8,9 ]
+const newArray = array.map(createMultiplication);
 
-// console.log(newArray);
+console.log(newArray);
 
 /**
  *
@@ -166,79 +166,3 @@ function renderBeerTable(beerArray, elementId) {
 }
 
 renderBeerTable(beers, 'beerTableContainer');
-
-/**
- * 
- * RETOS DEL REEDME
- */
-
-// 1.
-var titulo = document.getElementById("titulo");
-
-// 2.
-var tituloPrincipal = "Frutas";
-titulo.textContent = tituloPrincipal;
-
-// 3.
-var elementosNaranja = document.querySelectorAll("header, footer");
-elementosNaranja.forEach(function(elemento) {
-    elemento.style.backgroundColor = "orange";
-});
-
-// 4.
-var parrafoFooter = document.querySelector("footer p");
-parrafoFooter.textContent += " Lucas Madrigal -  Cohort 54";
-
-// 5.
-var contenedorDiv = document.createElement("div");
-contenedorDiv.id = "contenedor";
-document.querySelector("main").appendChild(contenedorDiv);
-
-// 6.
-function crearCard(nombre, foto, descripcion) {
-    return `
-        <div class="card">
-            <img src="${foto}" alt="${nombre}">
-            <h2>${nombre}</h2>
-            <p>${descripcion}</p>
-        </div>
-    `;
-}
-
-// 7.
-function mostrarCards(frutas) {
-    var contenedor = document.getElementById("contenedor");
-    frutas.forEach(function(fruta) {
-        var card = crearCard(fruta.nombre, fruta.foto, fruta.descripcion);
-        contenedor.innerHTML += card;
-    });
-}
-
-mostrarCards(frutas);
-
-// 8.
-var listaDiv = document.createElement("div");
-listaDiv.id = "lista";
-document.querySelector("main").appendChild(listaDiv);
-
-// 9.
-var tituloLista = document.createElement("h2");
-tituloLista.textContent = "Frutas Dulces";
-document.getElementById("lista").appendChild(tituloLista);
-
-// 10.
-function crearListaDesordenada(frutas) {
-    var lista = document.createElement("ul");
-    frutas.forEach(function(fruta) {
-        if (fruta.esDulce) {
-            var listItem = document.createElement("li");
-            listItem.textContent = fruta.nombre;
-            lista.appendChild(listItem);
-        }
-    });
-    return lista;
-}
-
-// 11.
-var listaFrutasDulces = crearListaDesordenada(frutas);
-document.getElementById("lista").appendChild(listaFrutasDulces);
